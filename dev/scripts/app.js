@@ -45,7 +45,6 @@ class App extends React.Component {
     firebase.auth().onAuthStateChanged((user) => {
       if (user !== null) {
         this.dbRef.on("value", snapshot => {
-          // console.log(snapshot.val());
         });
         this.setState({ 
           loggedIn: true,
@@ -53,7 +52,6 @@ class App extends React.Component {
           userName: user.displayName
         });
       } else {
-        // console.log("user logged out");
         this.setState({ 
           loggedIn: false,
           userID: ''
@@ -67,20 +65,12 @@ class App extends React.Component {
 
     firebase.auth().signInWithPopup(provider)
       .then((user) => {
-        console.log(user.user);
         if(user) {
           const token = user.credential.accessToken;
           const user = user.user;
           const userID = user.user.uid;
           const userName = user.user.displayName;
-          
-          // console.log(this.state.userID);
         }
-      // }, () => {
-      //   const userInfo = {
-      //     userName: this.state.userName
-      //   }
-      //   firebase.database().ref('users/' + this.state.userId).set(userInfo);
       })
       .catch(function(error) {
         console.log(error);

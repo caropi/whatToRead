@@ -5,16 +5,6 @@ import GenreRes from "./GenreRes";
 import Modal from "./Modal";
 import firebase from "firebase";
 
-// const config = {
-//   apiKey: "AIzaSyBkxhr4FMicWjtQin03JrWbbGVhe8mJgzM",
-//   authDomain: "whattoreadapp.firebaseapp.com",
-//   databaseURL: "https://whattoreadapp.firebaseio.com",
-//   projectId: "whattoreadapp",
-//   storageBucket: "whattoreadapp.appspot.com",
-//   messagingSenderId: "493854943854"
-// };
-
-// firebase.initializeApp(config);
 class RecPage extends React.Component {
     constructor(props) {
         super(props);
