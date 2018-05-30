@@ -31,7 +31,6 @@ class Modal extends React.Component {
             similarBooksDisplay: [],
             authors: [],
             authorName: ""
-            // userID: props.userID
         }
         this.authorDisplay = this.authorDisplay.bind(this);
         this.saveToFirebase = this.saveToFirebase.bind(this);
@@ -67,6 +66,7 @@ class Modal extends React.Component {
             });
 
             this.authorDisplay();
+            this.results.scrollIntoView({ behavior: "smooth" });
         })
     }
 
@@ -88,7 +88,6 @@ class Modal extends React.Component {
         const savedBook = {
             bookImage: this.state.bookData.image_url,
             bookTitle: this.state.bookData.title,
-            // bookAuthor: this.state.bookData.author.name,
             read: false,
             reading: false
         };
@@ -99,15 +98,13 @@ class Modal extends React.Component {
         });
 
         dbRef.set(savedBook);
-        console.log(addedBookID);
     }
 
     render () {
         const {bookData, similarBooksDisplay, bookID, authorName} = this.state;
-        console.log(bookData);
-        console.log(this.state.similarBooksDisplay);
+
         return (
-            <div className="modal">
+            <div ref={node => this.results = node} className="modal">
                 <div className="modal__close-button" onClick={() => this.state.onClose([])}>
                     <i className="fa fa-times modal__close-icon"></i>
                 </div>

@@ -10,7 +10,6 @@ const SavedData = (props) => {
             </div>
             <div className="saved-book__text">
                 <h2 className="saved-book__title">{props.savedBook.bookTitle}</h2>
-                {/* <h3 className="saved-book__author">{props.savedBook.bookAuthor}</h3> */}
             </div>
             <div className="saved-book__buttons">
                 <div className="saved-book__button-container">
