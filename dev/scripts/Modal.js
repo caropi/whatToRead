@@ -67,6 +67,7 @@ class Modal extends React.Component {
             });
 
             this.authorDisplay();
+            this.results.scrollIntoView({ behavior: "smooth" });
         })
     }
 
@@ -107,7 +108,7 @@ class Modal extends React.Component {
         console.log(bookData);
         console.log(this.state.similarBooksDisplay);
         return (
-            <div className="modal">
+            <div ref={node => this.results = node} className="modal">
                 <div className="modal__close-button" onClick={() => this.state.onClose([])}>
                     <i className="fa fa-times modal__close-icon"></i>
                 </div>
