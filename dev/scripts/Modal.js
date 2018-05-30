@@ -39,7 +39,7 @@ class Modal extends React.Component {
 
     componentDidMount () {
         axios({
-        url: "http://proxy.hackeryou.com",
+        url: "https://proxy.hackeryou.com",
         method: "GET",
         dataResponse: "JSON",
         paramsSerializer: function(params) {
