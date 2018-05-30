@@ -18,14 +18,12 @@ class SavedBooks extends React.Component {
           .database()
           .ref(`users/${user.uid}`)
           .on("value", res => {
-            // console.log(res.val())
             const userData = res.val();
             const dataArray = [];
             for (let bookKey in userData) {
               userData[bookKey].key = bookKey;
               dataArray.push(userData[bookKey]);
             }
-            // console.log(dataArray);
             this.setState({
               savedBooks: dataArray
             });
@@ -35,7 +33,6 @@ class SavedBooks extends React.Component {
   }
 
   currentlyReading(savedBookKey, isReading) {
-    // console.log(savedBookKey,isReading)
     if (isReading === false) {
       firebase
         .database()
@@ -54,7 +51,6 @@ class SavedBooks extends React.Component {
   }
 
   finishedReading(savedBookKey, hasRead) {
-    // console.log(savedBookKey,isReading)
     if (hasRead === false) {
       firebase
         .database()
@@ -83,7 +79,6 @@ class SavedBooks extends React.Component {
       <div className="saved">
         <div className="saved-section wrapper">
           {this.state.savedBooks.map((savedBook, savedKey) => {
-            // console.log(savedBook)
             return (
               <SavedData
                 savedBook={savedBook}
