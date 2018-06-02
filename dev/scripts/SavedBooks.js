@@ -38,7 +38,8 @@ class SavedBooks extends React.Component {
         .database()
         .ref(`users/${firebase.auth().currentUser.uid}/${savedBookKey}`)
         .update({
-          reading: true
+          reading: true,
+          read: false
         });
     } else if (isReading === true) {
       firebase
@@ -56,7 +57,8 @@ class SavedBooks extends React.Component {
         .database()
         .ref(`users/${firebase.auth().currentUser.uid}/${savedBookKey}`)
         .update({
-          read: true
+          read: true,
+          reading: false
         });
     } else if (hasRead === true) {
       firebase

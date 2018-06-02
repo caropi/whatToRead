@@ -10,6 +10,7 @@ import {
 import SavedBooks from './SavedBooks';
 import firebase from 'firebase';
 import Footer from './Footer';
+import Nav from './Nav';
 
 
   //Saved books page/user authentication
@@ -84,23 +85,17 @@ class App extends React.Component {
   render() {
     return <Router>
         <div className="app-container">
-          <div className="nav">
-            <Link to="/" className="nav-links">
-              Home
-            </Link>
-            {this.state.loggedIn === true && <Link to="/SavedBooks" className="nav-links">
-                My Books
-              </Link>}
-            {this.state.loggedIn === false && <button
-                onClick={this.loginWithGoogle}
-              >
-                Login
-              </button>}
-            {this.state.loggedIn === true ? <button onClick={this.logout}>
-                Logout
-              </button> : null}
-          </div>
-          <Route exact path="/" render={() => <RecPage userID={this.state.userID} loggedIn={this.state.loggedIn} login={this.loginWithGoogle} />} />
+          <Nav 
+            loggedIn={this.state.loggedIn}
+            login={this.loginWithGoogle}
+            logout={this.logout} />
+          <Route 
+            exact path="/" 
+            render={() => 
+              <RecPage 
+                userID={this.state.userID} 
+                loggedIn={this.state.loggedIn} 
+                login={this.loginWithGoogle} />} />
           <Route path="/SavedBooks" component={SavedBooks} />
           <Footer />
         </div>
